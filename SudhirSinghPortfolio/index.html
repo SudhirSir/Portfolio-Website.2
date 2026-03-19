@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudhir Singh | Software Developer</title>
+    <meta name="description" content="Portfolio of Sudhir Singh, a passionate Software Developer specializing in AI, Backend, and Modern Web Applications.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Ambient Glowing Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- 3D Interactive Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo">Sudhir<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero fade-in-section">
+            <div class="hero-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                <div class="greeting">Hello, world! I am</div>
+                <h1 class="glitch" data-text="Sudhir Singh">Sudhir Singh</h1>
+                <h2>Software Developer <span class="magic-text">& AI Enthusiast</span></h2>
+                <p>Building scalable backends, intelligent AI applications, and dynamic modern web experiences.</p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn primary-btn"><i class="fas fa-rocket"></i> View My Work</a>
+                    <a href="https://drive.google.com/file/d/1Q7mNTx_hEhmy6wTVcb-zTv2km8y5jnSS/view?usp=drive_link" target="_blank" class="btn secondary-btn"><i class="fas fa-download"></i> Download CV</a>
+                    <a href="mailto:thesudhiir@gmail.com" class="btn secondary-btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                </div>
+                <div class="social-links-hero mt-4">
+                    <a href="https://www.linkedin.com/in/sudhirsir/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/SudhirSir" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/SudhirSir_" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/sudhirsir_/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Sudhir_tutorials" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="tel:+918289034435" class="social-icon"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- 3D CSS Element -->
+            <div class="hero-3d-visual">
+                <div class="cube-container">
+                    <div class="cube">
+                        <div class="face front"><i class="fab fa-react"></i></div>
+                        <div class="face back"><i class="fab fa-python"></i></div>
+                        <div class="face right"><i class="fab fa-node-js"></i></div>
+                        <div class="face left"><i class="fas fa-database"></i></div>
+                        <div class="face top"><i class="fab fa-aws"></i></div>
+                        <div class="face bottom"><i class="fab fa-java"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow-down"></div>
+            </div>
+        </section>
+
+        <!-- About/Skills Section -->
+        <section id="skills" class="section fade-in-section">
+            <div class="section-title">
+                <h2>Technical <span class="gradient-text">Arsenal</span></h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category" data-tilt data-tilt-max="5">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-tilt data-tilt-max="5">
+                    <div class="category-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Backend & Web</h3>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">React</span>
+                        <span class="tag">HTML & CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-tilt data-tilt-max="5">
+                    <div class="category-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>Machine Learning</h3>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-tilt data-tilt-max="5">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Databases & Cloud</h3>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-tilt data-tilt-max="5">
+                    <div class="category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools & Core CS</h3>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Data Structures & Algo</span>
+                        <span class="tag">OOP & DBMS</span>
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">VS Code</span>
+                        <span class="tag">Power BI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section fade-in-section">
+            <div class="section-title">
+                <h2>Professional <span class="gradient-text">Journey</span></h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item" data-tilt data-tilt-axis="y" data-tilt-max="5">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <span class="date">Since 2019</span>
+                        <div class="role-company">
+                            <h3>Founder and Maths Educator</h3>
+                            <h4>SUDHIR TUTORIALS</h4>
+                        </div>
+                        <ul class="task-list">
+                            <li>Founded and lead an educational platform providing comprehensive mathematics instruction and guidance to students.</li>
+                            <li>Develop curated curriculum and teach complex mathematical concepts with a focus on problem-solving and conceptual clarity.</li>
+                            <li>Leverage technology and digital tools to enhance learning experiences and student engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-tilt data-tilt-axis="y" data-tilt-max="5">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <span class="date">Jun 2025 – Jun 2025</span>
+                        <div class="role-company">
+                            <h3>Cyber Intern</h3>
+                            <h4>Uttar Pradesh Police</h4>
+                        </div>
+                        <ul class="task-list">
+                            <li>Analyzed cyber-fraud cases and traced digital footprints using OSINT techniques and investigation tools.</li>
+                            <li>Examined phishing links, IP logs, and suspicious transactions to identify attack patterns.</li>
+                            <li>Supported cyber awareness campaigns by documenting common fraud methods and prevention steps.</li>
+                            <li>Assisted in preliminary digital evidence collection and report preparation for investigation workflows.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section fade-in-section">
+            <div class="section-title">
+                <h2>Featured <span class="gradient-text">Innovations</span></h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <a href="https://github.com/SudhirSir" target="_blank" class="project-card-link">
+                    <div class="project-card glass-card" data-tilt data-tilt-max="8" data-tilt-scale="1.02">
+                        <div class="project-image-wrapper placeholder-img-1">
+                            <!-- Custom CSS pattern instead of image to guarantee amazing aesthetic -->
+                            <div class="project-overlay">
+                                <div class="glow-icon" title="Live Demo"><i class="fas fa-external-link-alt"></i></div>
+                                <div class="glow-icon" title="View Source"><i class="fab fa-github"></i></div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>Bias Buster <span class="badge">AI Extension</span></h3>
+                                <span class="project-date">Jun 2025 – Aug 2025</span>
+                            </div>
+                            <p>Full-stack AI web app & Chrome Extension detecting gender, racial, political, and cultural bias in text with real-time analysis using Llama 3.</p>
+                            <div class="tech-stack">
+                                <span>React 18</span><span>TypeScript</span><span>Vite</span><span>Flask</span><span>PostgreSQL</span><span>GROQ API</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2 (EduPred AI) -->
+                <a href="https://github.com/SudhirSir" target="_blank" class="project-card-link">
+                    <div class="project-card glass-card" data-tilt data-tilt-max="8" data-tilt-scale="1.02">
+                        <div class="project-image-wrapper placeholder-img-2">
+                            <div class="project-overlay">
+                                <div class="glow-icon" title="Live Demo"><i class="fas fa-external-link-alt"></i></div>
+                                <div class="glow-icon" title="View Source"><i class="fab fa-github"></i></div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h3>EduPred AI <span class="badge">ML & API</span></h3>
+                                <span class="project-date">Dec 2025 – Jan 2026</span>
+                            </div>
+                            <p>Student performance prediction model using classification algorithms on academic datasets with a Flask REST API and Power BI dashboard integration.</p>
+                            <div class="tech-stack">
+                                <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>Flask REST API</span><span>ML Algorithms</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Hybrid Section: Certifications & Achievements -->
+        <section id="achievements" class="section fade-in-section">
+            <div class="dual-grid">
+                <!-- Certifications -->
+                <div class="certifications-col">
+                    <div class="section-title left-align">
+                        <h2>Licenses & <span class="gradient-text">Certifications</span></h2>
+                    </div>
+                    <div class="cert-list">
+                        <div class="cert-item glass-card" data-tilt data-tilt-max="3" data-tilt-axis="x">
+                            <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                            <div class="cert-details">
+                                <h4>ChatGPT-4 Prompt Engineering & LLM</h4>
+                                <p>Infosys Springboard <span class="cert-date">• Aug 2025</span></p>
+                            </div>
+                        </div>
+                        <div class="cert-item glass-card" data-tilt data-tilt-max="3" data-tilt-axis="x">
+                            <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                            <div class="cert-details">
+                                <h4>Machine Learning</h4>
+                                <p>LPU CPE <span class="cert-date">• Jul 2025</span></p>
+                            </div>
+                        </div>
+                        <div class="cert-item glass-card" data-tilt data-tilt-max="3" data-tilt-axis="x">
+                            <div class="cert-icon"><i class="fas fa-cloud"></i></div>
+                            <div class="cert-details">
+                                <h4>Cloud Computing</h4>
+                                <p>NPTEL <span class="cert-date">• May 2025</span></p>
+                            </div>
+                        </div>
+                        <div class="cert-item glass-card" data-tilt data-tilt-max="3" data-tilt-axis="x">
+                            <div class="cert-icon"><i class="fas fa-code"></i></div>
+                            <div class="cert-details">
+                                <h4>Data Structures & OOPs with C++</h4>
+                                <p>Udemy <span class="cert-date">• Nov 2024</span></p>
+                            </div>
+                        </div>
+                        <div class="cert-item glass-card" data-tilt data-tilt-max="3" data-tilt-axis="x">
+                            <div class="cert-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div class="cert-details">
+                                <h4>Responsive Web Design & SWE Methodologies</h4>
+                                <p>FreeCodeCamp & Coursera <span class="cert-date">• 2023-2024</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="achievements-col">
+                    <div class="section-title left-align">
+                        <h2>Key <span class="gradient-text">Milestones</span></h2>
+                    </div>
+                    <div class="achievement-cards">
+                        <div class="achieve-card" data-tilt data-tilt-max="10">
+                            <div class="achieve-icon"><i class="fas fa-trophy"></i></div>
+                            <h4>300+ DSA Problems</h4>
+                            <p>Across LeetCode and GeeksForGeeks</p>
+                        </div>
+                        <div class="achieve-card" data-tilt data-tilt-max="10">
+                            <div class="achieve-icon"><i class="fas fa-medal"></i></div>
+                            <h4>Silver Badge</h4>
+                            <p>CodeChef Problem Solver</p>
+                        </div>
+                        <div class="achieve-card" data-tilt data-tilt-max="10">
+                            <div class="achieve-icon"><i class="fas fa-star"></i></div>
+                            <h4>Academic Excellence</h4>
+                            <p>Merit Scholarship & 12th Board Topper (94.2%)</p>
+                        </div>
+                        <div class="achieve-card" data-tilt data-tilt-max="10">
+                            <div class="achieve-icon"><i class="fas fa-users"></i></div>
+                            <h4>Mentorship Excellence</h4>
+                            <p>Mentored many single and double digit rank toppers</p>
+                        </div>
+                        <div class="achieve-card" data-tilt data-tilt-max="10">
+                            <div class="achieve-icon"><i class="fas fa-award"></i></div>
+                            <h4>Leadership</h4>
+                            <p>Class Rep & BPM in Indian Post Services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coding Profiles Section -->
+        <section id="coding-profiles" class="section fade-in-section">
+            <div class="section-title">
+                <h2>Coding <span class="gradient-text">Profiles</span></h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="profiles-grid">
+                <a href="https://www.geeksforgeeks.org/profile/thesudhirsir" target="_blank" class="profile-card glass-card" data-tilt data-tilt-max="8">
+                    <div class="profile-icon" style="background: linear-gradient(135deg, #2f8d46, #1a6b30);">
+                        <span class="profile-icon-text">GFG</span>
+                    </div>
+                    <h3>GeeksforGeeks</h3>
+                    <p>Problem Solving & DSA</p>
+                    <div class="profile-link-indicator"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://leetcode.com/u/Sudhir15/" target="_blank" class="profile-card glass-card" data-tilt data-tilt-max="8">
+                    <div class="profile-icon" style="background: linear-gradient(135deg, #ffa116, #d48806);">
+                        <span class="profile-icon-text">LC</span>
+                    </div>
+                    <h3>LeetCode</h3>
+                    <p>Competitive Programming</p>
+                    <div class="profile-link-indicator"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://www.codechef.com/users/sudhirsir" target="_blank" class="profile-card glass-card" data-tilt data-tilt-max="8">
+                    <div class="profile-icon" style="background: linear-gradient(135deg, #5b4638, #3e2f25);">
+                        <span class="profile-icon-text">CC</span>
+                    </div>
+                    <h3>CodeChef</h3>
+                    <p>Competitive Contests</p>
+                    <div class="profile-link-indicator"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://www.hackerrank.com/profile/sudhirsir" target="_blank" class="profile-card glass-card" data-tilt data-tilt-max="8">
+                    <div class="profile-icon" style="background: linear-gradient(135deg, #00ea64, #00b84d);">
+                        <span class="profile-icon-text">HR</span>
+                    </div>
+                    <h3>HackerRank</h3>
+                    <p>Skills & Certifications</p>
+                    <div class="profile-link-indicator"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="https://codeforces.com/profile/Sudhirsir" target="_blank" class="profile-card glass-card" data-tilt data-tilt-max="8">
+                    <div class="profile-icon" style="background: linear-gradient(135deg, #1a8cff, #0066cc);">
+                        <span class="profile-icon-text">CF</span>
+                    </div>
+                    <h3>Codeforces</h3>
+                    <p>Competitive Rounds</p>
+                    <div class="profile-link-indicator"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section fade-in-section">
+            <div class="section-title">
+                <h2>Academic <span class="gradient-text">Background</span></h2>
+                <div class="underline"></div>
+            </div>
+            
+            <div class="edu-grid">
+                <div class="edu-card glass-card" data-tilt data-tilt-max="5">
+                    <div class="edu-year">Since Aug 2023</div>
+                    <h3>B.Tech - Computer Science and Engineering</h3>
+                    <h4>Lovely Professional University</h4>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Phagwara, Punjab</p>
+                    <div class="score">CGPA: 7.55</div>
+                </div>
+                
+                <div class="edu-card glass-card" data-tilt data-tilt-max="5">
+                    <div class="edu-year">Apr 2022 – Mar 2023</div>
+                    <h3>Intermediate (12th)</h3>
+                    <h4>Govt. Sen. Sec. Smart School, P.A.U</h4>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Ludhiana, Punjab</p>
+                    <div class="score">Percentage: 94.2%</div>
+                </div>
+
+                <div class="edu-card glass-card" data-tilt data-tilt-max="5">
+                    <div class="edu-year">Apr 2020 – Mar 2021</div>
+                    <h3>Matriculation (10th)</h3>
+                    <h4>Holy Dale Public High School</h4>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Ludhiana, Punjab</p>
+                    <div class="score">Percentage: 100%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer>
+            <div class="footer-content" id="contact" data-tilt data-tilt-max="3">
+                <h2 class="contact-title">Let's Connect</h2>
+                <p>Always open to discussing product design work, software development, or partnership opportunities.</p>
+                <div class="contact-links">
+                    <a href="mailto:thesudhiir@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> thesudhiir@gmail.com
+                    </a>
+                    <a href="tel:+918289034435" class="contact-item">
+                        <i class="fas fa-phone-alt"></i> +91-8289034435
+                    </a>
+                </div>
+                <div class="social-footer mt-4">
+                    <a href="https://www.linkedin.com/in/sudhirsir/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/SudhirSir" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/SudhirSir_" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/sudhirsir_/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Sudhir_tutorials" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Sudhir Singh. Built with <i class="fas fa-heart" style="color: #ff0844;"></i></p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Vanilla Tilt for 3D interactions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
