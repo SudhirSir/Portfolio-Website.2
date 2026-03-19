@@ -31,6 +31,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    /* ===== THEME TOGGLE (DARK/LIGHT MODE) ===== */
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const darkIcon = document.querySelector('.dark-icon');
+    const lightIcon = document.querySelector('.light-icon');
+    
+    // Check local storage or system preference
+    const currentTheme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    
+    if (currentTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        darkIcon.style.display = 'none';
+        lightIcon.style.display = 'block';
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'light') {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
+            darkIcon.style.display = 'block';
+            lightIcon.style.display = 'none';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            darkIcon.style.display = 'none';
+            lightIcon.style.display = 'block';
+        }
+        // Re-init particles with new theme colors
+        if(typeof createParticles === 'function') {
+            createParticles();
+        }
+    });
+
     /* ===== CUSTOM CURSOR ===== */
     const cursorDot = document.querySelector('[data-cursor-dot]');
     const cursorOutline = document.querySelector('[data-cursor-outline]');
@@ -184,8 +218,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let particleRatio = (window.innerWidth < 768) ? 8000 : 12000;
         let numberOfParticles = (width * height) / particleRatio; 
         
-        // Premium tech color palette (Adapted for dark mode)
-        const colors = [
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const colors = isLight ? [
+            'rgba(2, 132, 199, 0.6)',  // Darker Cyan
+            'rgba(124, 58, 237, 0.6)', // Darker Violet
+            'rgba(219, 39, 119, 0.6)'  // Darker Pink
+        ] : [
             'rgba(14, 165, 233, 0.8)', // Cyan
             'rgba(139, 92, 246, 0.8)', // Violet
             'rgba(236, 72, 153, 0.8)'  // Pink
@@ -206,7 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function animate() {
         requestAnimationFrame(animate);
         // Add subtle trail effect
-        ctx.fillStyle = 'rgba(3, 7, 18, 0.2)'; // Match new bg-color (dark)
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        ctx.fillStyle = isLight ? 'rgba(248, 250, 252, 0.2)' : 'rgba(3, 7, 18, 0.2)'; 
         ctx.fillRect(0, 0, width, height);
 
         for (let i = 0; i < particles.length; i++) {
@@ -216,6 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function connectParticles() {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const lineBaseColor = isLight ? '124, 58, 237' : '139, 92, 246'; // Violet RGB
+
         let opacityValue = 1;
         for (let a = 0; a < particles.length; a++) {
             for (let b = a; b < particles.length; b++) {
@@ -224,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (distance < (width / 12) * (height / 12)) {
                     opacityValue = 1 - (distance / 10000);
-                    ctx.strokeStyle = `rgba(139, 92, 246, ${opacityValue * 0.3})`; // Violet for lines
+                    ctx.strokeStyle = `rgba(${lineBaseColor}, ${opacityValue * 0.3})`;
                     ctx.lineWidth = 1;
                     ctx.beginPath();
                     ctx.moveTo(particles[a].x, particles[a].y);
@@ -255,6 +297,78 @@ document.addEventListener('DOMContentLoaded', () => {
                 glitchTitle.style.transform = 'translate(0, 0)';
             }, 50);
         }, 3000);
+    }
+
+    /* ===== EMAILJS CONTACT FORM INTEGRATION ===== */
+    const contactForm = document.getElementById('contact-form');
+    // Ensure emailjs is loaded
+    if (contactForm && typeof emailjs !== 'undefined') {
+        // We use dummy initialize because user will replace with their own.
+        emailjs.init('YOUR_PUBLIC_KEY');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('send-btn');
+            const btnText = btn.querySelector('.btn-text');
+            const btnLoader = btn.querySelector('.btn-loader');
+            const toast = document.getElementById('form-toast');
+            
+            // Basic validation
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+
+            if (!name || !email || !message) {
+                showToast(toast, 'error', 'Please fill in all required fields.');
+                return;
+            }
+
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoader.style.display = 'inline-block';
+            btn.disabled = true;
+
+            // Send Email Template variables to EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: document.getElementById('contact-subject').value || 'New connection from Portfolio',
+                message: message
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function() {
+                    showToast(toast, 'success', 'Message sent successfully! I will get back to you soon.');
+                    contactForm.reset();
+                    resetBtn(btn, btnText, btnLoader);
+                }, function(error) {
+                    console.error('EmailJS Error:', error);
+                    showToast(toast, 'error', 'Failed to send message. Please replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, and YOUR_PUBLIC_KEY with actual EmailJS keys.');
+                    resetBtn(btn, btnText, btnLoader);
+                });
+        });
+
+        function showToast(toastEl, type, message) {
+            toastEl.className = 'form-toast ' + type;
+            toastEl.innerHTML = type === 'success' ? `<i class="fas fa-check-circle"></i> <span>${message}</span>` : `<i class="fas fa-exclamation-circle"></i> <span>${message}</span>`;
+            
+            // Auto hide toast
+            setTimeout(() => {
+                toastEl.style.opacity = '0';
+                setTimeout(() => {
+                    toastEl.classList.remove('success', 'error');
+                    toastEl.style.display = 'none';
+                    toastEl.style.opacity = '1';
+                }, 300);
+            }, 6000);
+        }
+
+        function resetBtn(btn, btnText, btnLoader) {
+            btnText.style.display = 'inline-block';
+            btnLoader.style.display = 'none';
+            btn.disabled = false;
+        }
     }
 
 });

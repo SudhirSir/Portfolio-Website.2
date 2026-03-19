@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudhir Singh | Software Developer</title>
-    <meta name="description" content="Portfolio of Sudhir Singh, a passionate Software Developer specializing in AI, Backend, and Modern Web Applications.">
+    <title>Sudhir Singh | Software Developer &amp; Data Analyst</title>
+    <meta name="description" content="Portfolio of Sudhir Singh, a passionate Software Developer &amp; Data Analyst specializing in AI, Backend, and Modern Web Applications.">
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -33,9 +33,16 @@
             <li><a href="#experience" class="nav-link">Experience</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
             <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#contact-section" class="nav-link">Contact</a></li>
         </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
+        <div class="nav-controls">
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark/Light Mode">
+                <i class="fas fa-sun dark-icon"></i>
+                <i class="fas fa-moon light-icon" style="display: none;"></i>
+            </button>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -43,9 +50,9 @@
         <!-- Hero Section -->
         <section id="hero" class="hero fade-in-section">
             <div class="hero-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-                <div class="greeting">Hello, world! I am</div>
+                <div class="greeting">Namastey, world! I am</div>
                 <h1 class="glitch" data-text="Sudhir Singh">Sudhir Singh</h1>
-                <h2>Software Developer <span class="magic-text">& AI Enthusiast</span></h2>
+                <h2>Data Scientist, <span class="magic-text">Developer &</span> AI/ML Enthusiast</h2>
                 <p>Building scalable backends, intelligent AI applications, and dynamic modern web experiences.</p>
                 <div class="cta-group">
                     <a href="#projects" class="btn primary-btn"><i class="fas fa-rocket"></i> View My Work</a>
@@ -62,18 +69,18 @@
                 </div>
             </div>
             
-            <!-- 3D CSS Element -->
-            <div class="hero-3d-visual">
-                <div class="cube-container">
-                    <div class="cube">
-                        <div class="face front"><i class="fab fa-react"></i></div>
-                        <div class="face back"><i class="fab fa-python"></i></div>
-                        <div class="face right"><i class="fab fa-node-js"></i></div>
-                        <div class="face left"><i class="fas fa-database"></i></div>
-                        <div class="face top"><i class="fab fa-aws"></i></div>
-                        <div class="face bottom"><i class="fab fa-java"></i></div>
-                    </div>
+            <!-- Profile Photo - Cinematic Card -->
+            <div class="hero-photo-wrapper">
+                <div class="cinematic-photo-card glass-card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.5">
+                    <img src="SudhirProfile.jpeg" alt="Sudhir Singh - Spatial Portrait" class="hero-portrait" />
+                    <div class="photo-overlay-gradient"></div>
+                    <div class="photo-status-badge"><i class="fas fa-circle"></i> Available for Work</div>
                 </div>
+                <!-- Floating tech pills around the photo -->
+                <div class="float-pill pill-1"><i class="fab fa-python"></i> Python</div>
+                <div class="float-pill pill-2"><i class="fas fa-chart-bar"></i> Data</div>
+                <div class="float-pill pill-3"><i class="fas fa-brain"></i> ML</div>
+                <div class="float-pill pill-4"><i class="fab fa-react"></i> React</div>
             </div>
             <div class="scroll-indicator">
                 <div class="mouse">
@@ -432,26 +439,90 @@
             </div>
         </section>
 
-        <!-- Footer / Contact -->
+        <!-- Contact Section -->
+        <section id="contact-section" class="section fade-in-section">
+            <div class="section-title">
+                <h2>Let's <span class="gradient-text">Connect</span></h2>
+                <div class="underline"></div>
+                <p class="contact-section-subtitle">Always open to discussing product design work, software development, or partnership opportunities.</p>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <div class="contact-info-panel glass-card">
+                    <h3>Get In Touch</h3>
+                    <p>I'm currently available for full-time roles, freelance projects, and collaborations.</p>
+                    <div class="contact-info-items">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <span class="contact-info-label">Email</span>
+                                <a href="mailto:thesudhiir@gmail.com" class="contact-info-value">thesudhiir@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <span class="contact-info-label">Phone</span>
+                                <a href="tel:+918289034435" class="contact-info-value">+91-8289034435</a>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <span class="contact-info-label">Location</span>
+                                <span class="contact-info-value">Punjab, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact-form glass-card" novalidate>
+                    <div id="form-toast" class="form-toast" aria-live="polite"></div>
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="contact-name" name="from_name" placeholder="Name" required autocomplete="name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Your Email</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="contact-email" name="from_email" placeholder="you@example.com" required autocomplete="email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-tag input-icon"></i>
+                            <input type="text" id="contact-subject" name="subject" placeholder="Project Inquiry" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fas fa-comment input-icon textarea-icon"></i>
+                            <textarea id="contact-message" name="message" placeholder="Tell me about your idea..." rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" id="send-btn" class="btn primary-btn send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loader" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Minimal Footer -->
         <footer>
-            <div class="footer-content" id="contact" data-tilt data-tilt-max="3">
-                <h2 class="contact-title">Let's Connect</h2>
-                <p>Always open to discussing product design work, software development, or partnership opportunities.</p>
-                <div class="contact-links">
-                    <a href="mailto:thesudhiir@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i> thesudhiir@gmail.com
-                    </a>
-                    <a href="tel:+918289034435" class="contact-item">
-                        <i class="fas fa-phone-alt"></i> +91-8289034435
-                    </a>
-                </div>
-                <div class="social-footer mt-4">
-                    <a href="https://www.linkedin.com/in/sudhirsir/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/SudhirSir" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/SudhirSir_" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/sudhirsir_/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@Sudhir_tutorials" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-                </div>
+            <div class="social-footer">
+                <a href="https://www.linkedin.com/in/sudhirsir/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/SudhirSir" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/SudhirSir_" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/sudhirsir_/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Sudhir_tutorials" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
             </div>
             <div class="copyright">
                 <p>&copy; 2026 Sudhir Singh. Built with <i class="fas fa-heart" style="color: #ff0844;"></i></p>
@@ -461,6 +532,8 @@
 
     <!-- Vanilla Tilt for 3D interactions -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- EmailJS for contact form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
